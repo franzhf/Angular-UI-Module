@@ -1,0 +1,24 @@
+<div class="card-deck">
+  <div class="card" *ngFor="let activity of activityList" style="max-width: 22rem;">
+      <div class="card text-white bg-dark mb-3" style="max-width: 20rem;">
+          <div class="card-header">{{activity.getFriendlyName()}}</div>
+          <div class="card-body">
+            <h5 class="card-title">Story Points: {{activity.storyPoints}}</h5>
+            <p class="card-text">Burnt sessions: {{activity.burntSessions}}.</p>
+            <p class="card-text">Remaining Session: {{activity.RemainingSessions}}.</p>            
+            <div *ngIf="activity.state=='New';else content">
+                <span class="badge badge-danger">Status: {{activity.state}}</span>
+            </div>            
+            <ng-template #content>
+                <span class="badge badge-warning">Status: {{activity.state}}</span>
+            </ng-template>            
+          </div>
+          <div class="card-footer bg-transparent border-success">              
+            <button (click)="activity.onClickStart()">Start</button>       
+            
+          </div>
+        </div>
+  </div>
+</div>
+
+

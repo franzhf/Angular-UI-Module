@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ActivityTimeTracker-UI-Angular';
+  list:string [] = ["aa","ddd"];
+  heroes:string [] = ['Windstorm', 'Bombasto', 'Magneta', 'Tornado'];
+
+
 }
