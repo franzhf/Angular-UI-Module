@@ -27,7 +27,9 @@
  enum TypeOfActivity {
     Reading,
     Writing,
-    Coding
+    Coding,
+    EnglishTime,
+    Designing
 }
 
 enum ActivityState {
