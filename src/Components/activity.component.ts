@@ -29,7 +29,8 @@
     Writing,
     Coding,
     EnglishTime,
-    Designing
+    Designing,
+    Listining
 }
 
 enum ActivityState {
