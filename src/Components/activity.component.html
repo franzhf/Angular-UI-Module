@@ -1,3 +1,17 @@
+<form (ngSubmit)="addActivity()">
+    <button>Save</button>
+    <div class="form-group">
+        <label>Type Of Activity:</label>
+          <input class="form-control" formControlName="typeOfActivity">
+        <label>Story Points:</label>
+          <input class="form-control" storyPoints="storyPoints">
+        <label>Description:</label>
+          <input class="form-control" storyPoints="description">
+    </div>
+    
+</form>
+
+<h1>LIST OF ACTIVITIES</h1>
 <div class="card-deck">
   <div class="card" *ngFor="let activity of activityList" style="max-width: 22rem;">
       <div class="card text-white bg-dark mb-3" style="max-width: 20rem;">
@@ -14,9 +28,9 @@
             </ng-template>            
           </div>
           <div class="card-footer bg-transparent border-success">              
-            <button (click)="activity.onClickStart()">Start</button>       
-            
+            <button (click)="activity.onClickStart()">Start</button>            
           </div>
+          <button (click)="onClickDelete(activity)">Delete</button>  
         </div>
   </div>
 </div>

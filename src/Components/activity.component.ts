@@ -14,14 +14,31 @@
             new Activity(10, TypeOfActivity.Writing, "Excercing oo in typescript "),
             new Activity(10, TypeOfActivity.Coding, "Phrasal Verbs review"),
             new Activity(10, TypeOfActivity.Reading, "Refactoring by Martin Fowler")
-        ]
-        
+        ]        
     }
  
     ngOnInit() {         
         //console.log(this.activityList);
     }
- 
+    
+    onClickDelete(activity: Activity) {
+        
+        for (let index = 0; index < this.activityList.length; index++) {
+            const element = this.activityList[index];
+            console.log(element);
+            if(JSON.stringify(element) ===  JSON.stringify(activity)) {                
+                this.activityList.splice(index,1);
+                console.log(this.activityList.length);
+            }
+        }
+        
+    }
+
+    addActivity(){
+        console.log("dasdasdas");
+        return false;
+    }
+
  }
 
  enum TypeOfActivity {
@@ -98,5 +115,6 @@ export class Activity {
         console.log(this.getFriendlyName());
         //this.RemainingSessions = this.RemainingSessions + 2;
     }
+
 
 }
