@@ -5,6 +5,7 @@
      templateUrl: 'activity.component.html'
  })
  export class ActivityComponent implements OnInit {
+    public typeActivityInProcess: string;
     activityList: Array<Activity> ;
     constructor() { 
         let readingBook = new Activity(8, TypeOfActivity.Reading, "Clean Code Book by Robert Martin");
@@ -34,8 +35,8 @@
         
     }
 
-    addActivity(){
-        console.log("dasdasdas");
+    addActivity(newActivity: any){        
+        this.activityList.push(new Activity(newActivity.storyPoints, newActivity.typeOfActivity, newActivity.description));
         return false;
     }
 
