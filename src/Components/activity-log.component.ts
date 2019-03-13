@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {Activity}  from './activity.component';
+
+import { Activity } from '../app/Model/activity';
 
     
 

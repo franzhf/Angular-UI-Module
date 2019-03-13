@@ -1,0 +1,45 @@
+<form #newActivity="ngForm" (ngSubmit)="addActivity(newActivity.value)">
+  <div class="row">
+    <div class="col">
+
+      <div class="form-group">    
+          <label>Type Of Activity:</label>
+          <select required class="form-control" name="typeOfActivity" [(ngModel)]="typeOfActivitySlected">
+            <option selected>Reading</option>
+            <option selected>Writing</option>
+            <option selected>Coding</option>
+          </select>
+          <!--<input required type="text" class="form-control" name="typeOfActivity" [(ngModel)]="typeActivityInProcess" #typeOfActivity="ngModel" minlength="5">-->
+          <!--<div class="alert alert-danger" *ngIf="typeOfActivity.touched && !typeOfActivity.valid" >
+            <div *ngIf="typeOfActivity.errors.required"> Type of Activity is Required</div>
+            <div *ngIf="typeOfActivity.errors.minlength"> Type of Activity the minimun character must be 5</div>
+          </div> -->
+
+      
+      </div>
+      <div class="form-group">
+          <label>Story Points:</label>
+          <input required type="text" class="form-control" name="storyPoints" ngModel #storyPoints="ngModel">
+          <div class="alert alert-danger" *ngIf="storyPoints.touched && !storyPoints.valid" >
+            <div *ngIf="storyPoints.errors.required"> Story Points is required</div>
+            <div *ngIf="storyPoints.errors.pattern"> Story Points not match</div>
+          </div>
+      </div>
+      <div class="form-group">
+          <label>Description:</label>  
+          <input required type="text" class="form-control" name="description" ngModel #description="ngModel">
+          <div class="alert alert-danger" *ngIf="description.touched && !description.valid" >Description is Required</div>
+      </div>
+    </div>  
+    <div class="col">
+      <div class="form-group" [ngSwitch]="typeOfActivitySleced">
+        <div *ngSwitchCase="Reading">
+          asdas
+            <app-reading-activity-form>aaaa</app-reading-activity-form>
+        </div>   
+       {{typeOfActivitySlected}}
+      </div>
+    </div>     
+  </div> 
+  <button class="btn btn-primary">Save</button>
+</form>
