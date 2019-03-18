@@ -1,5 +1,5 @@
 
-import { Activity } from '../app/Model/activity';
+import { Activity } from '../model/activity';
 
     
 

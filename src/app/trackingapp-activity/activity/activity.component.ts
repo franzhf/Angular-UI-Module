@@ -1,7 +1,8 @@
- import { Component, OnInit } from '@angular/core';
- import { TypeOfActivity, ActivityState, Activity } from '../app/Model/activity';
- import { ActivityService } from '../app/activity-service';
-
+import { Component, OnInit } from '@angular/core';
+import { TypeOfActivity, ActivityState, Activity } from '../model/activity';
+import { ActivityService } from '../activity-service';
+import { AddActivityDialogComponent } from '../add-activity-dialog/add-activity-dialog.component';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
  
  @Component({
     selector: 'app-activity',
@@ -11,13 +12,16 @@
 
 export class ActivityComponent implements OnInit {
     activityList: Activity[] ;
-    constructor(private activityService: ActivityService) {
+    constructor(private activityService: ActivityService, private dialog: MatDialog ) {        
         this.activityService.getData().subscribe(data => {            
             this.activityList = data;
         })
+        console.log(this.dialog);
     }
 
    ngOnInit() {
+    console.log("dialog insctance");   
+    console.log(this.dialog);
    }
    
    onClickDelete(activity: WrapperActivity) {       
@@ -30,6 +34,14 @@ export class ActivityComponent implements OnInit {
            }
        }       
    }
+
+   openAddActivityDialog() {
+    let dialogRef = this.dialog.open(AddActivityDialogComponent);
+    dialogRef.afterClosed().subscribe( data => {
+        console.log("close window!");
+    });
+   }
+
 }
 
  export class WrapperActivity {
