@@ -5,7 +5,7 @@ import {ActivityComponent} from './activity/activity.component'
 const routes: Routes = [
   { 
     path: '', 
-    component: ActivityComponent
+    component: ActivityComponent // Lazy loaded-module 
   }   
 ];
 

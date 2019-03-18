@@ -14,6 +14,7 @@ export class AddActivityFormComponent implements OnInit {
   typeOfActivitySlected:string;
 
   constructor(private dialog: MatDialog, private activityService: ActivityService, private router: Router) {
+    
     console.log("add activity");
     /*if(activityList === null)
       throw new Error('You must provide the activity list');*/

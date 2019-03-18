@@ -3,14 +3,17 @@ import { Routes, RouterModule } from '@angular/router';
 import { PostsComponent } from './posts/posts.component';
 
 const routes: Routes = [
-  { path: 'activities', 
-    loadChildren: './trackingapp-activity/activity.module#ActivityModule'
-  },
+  {
+    path : '',
+    component: PostsComponent
+  }, 
   { 
     path: 'posts', 
     component: PostsComponent
-  } 
-  
+  }, 
+  { path: 'activities', 
+    loadChildren: './trackingapp-activity/activity.module#ActivityModule'
+  },
 ];
 
 @NgModule({

@@ -15,13 +15,11 @@ export class ActivityComponent implements OnInit {
     constructor(private activityService: ActivityService, private dialog: MatDialog ) {        
         this.activityService.getData().subscribe(data => {            
             this.activityList = data;
-        })
-        console.log(this.dialog);
+        })                
     }
 
    ngOnInit() {
-    console.log("dialog insctance");   
-    console.log(this.dialog);
+    
    }
    
    onClickDelete(activity: WrapperActivity) {       
@@ -36,12 +34,14 @@ export class ActivityComponent implements OnInit {
    }
 
    openAddActivityDialog() {
-    let dialogRef = this.dialog.open(AddActivityDialogComponent);
+    let dialogRef = this.dialog.open(AddActivityDialogComponent, {
+        width: '400px',
+        data: {activityList: this.activityList}
+      });
     dialogRef.afterClosed().subscribe( data => {
         console.log("close window!");
     });
    }
-
 }
 
  export class WrapperActivity {

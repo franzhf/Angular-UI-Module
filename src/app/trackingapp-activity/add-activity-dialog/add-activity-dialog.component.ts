@@ -11,9 +11,23 @@ import { Activity } from '../model/activity';
 
 export class AddActivityDialogComponent {
   constructor(public dialogRef: MatDialogRef<AddActivityDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public  activityList: Activity[]) {}
+    @Inject(MAT_DIALOG_DATA) private  activityList: Activity[]) {
+      console.log(activityList);
+    }
+
+    addActivity(newActivity: any ){
+      let activity = new  Activity(newActivity.storyPoints, newActivity.typeOfActivity, newActivity.description );
+      console.log(this.activityList);
+      this.activityList.push(activity)    
+      return false;
+    }
 
     onNoClick(): void {
+
+      
       this.dialogRef.close();
-    }  
+    }
+    onCancel() {
+      this.dialogRef.close();
+    }
 }

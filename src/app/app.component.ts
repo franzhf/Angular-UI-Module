@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { DataService } from './data.service';
-import { ActivityComponent } from './trackingapp-activity/activity/activity.component';
+//import { ActivityComponent } from './trackingapp-activity/activity/activity.component';
 
 
 @Component({
@@ -9,7 +9,7 @@ import { ActivityComponent } from './trackingapp-activity/activity/activity.comp
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  @ViewChild(ActivityComponent) activity: ActivityComponent
+  //@ViewChild(ActivityComponent) activity: ActivityComponent
 
 
   title = 'ActivityTimeTracker-UI-Angular';
@@ -22,6 +22,6 @@ export class AppComponent {
   }
 
   openAddModal() {
-    this.activity.openAddActivityDialog();
+    //this.activity.openAddActivityDialog();
   }
 }
