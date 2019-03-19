@@ -24,8 +24,7 @@ export class ActivityComponent implements OnInit {
    
    onClickDelete(activity: WrapperActivity) {       
        for (let index = 0; index < this.activityList.length; index++) {
-           const element = this.activityList[index];
-           console.log(element);
+           const element = this.activityList[index];           
            if(JSON.stringify(element) ===  JSON.stringify(activity)) {                
                this.activityList.splice(index,1);
                console.log(this.activityList.length);
@@ -36,6 +35,7 @@ export class ActivityComponent implements OnInit {
    openAddActivityDialog() {
     let dialogRef = this.dialog.open(AddActivityDialogComponent, {
         width: '400px',
+        height: '400px',
         data: {activityList: this.activityList}
       });
     dialogRef.afterClosed().subscribe( data => {

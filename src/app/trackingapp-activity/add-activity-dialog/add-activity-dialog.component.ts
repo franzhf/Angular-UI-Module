@@ -10,24 +10,19 @@ import { Activity } from '../model/activity';
 })
 
 export class AddActivityDialogComponent {
+  activityList:Activity [];
   constructor(public dialogRef: MatDialogRef<AddActivityDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) private  activityList: Activity[]) {
-      console.log(activityList);
+    @Inject(MAT_DIALOG_DATA) private  data: any) {
+      this.activityList = data.activityList;
     }
 
-    addActivity(newActivity: any ){
-      let activity = new  Activity(newActivity.storyPoints, newActivity.typeOfActivity, newActivity.description );
-      console.log(this.activityList);
+    addActivity(newActivity: any ){      
+      let activity = new  Activity(newActivity.storyPoints, newActivity.typeOfActivity, newActivity.description );      
       this.activityList.push(activity)    
       return false;
     }
-
-    onNoClick(): void {
-
-      
-      this.dialogRef.close();
-    }
-    onCancel() {
+   
+    onClose() {
       this.dialogRef.close();
     }
 }

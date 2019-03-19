@@ -37,6 +37,7 @@ export class Activity implements IActivity, IEntity{
         this.typeOfActivity = typeOfActivity;
         this.storyPoints = storyPoints;
         this.description = description;
+        this.state = ActivityState.New;
     }
     
     getFriendlyName() {        

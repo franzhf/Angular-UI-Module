@@ -3,10 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { PostsComponent } from './posts/posts.component';
 
 const routes: Routes = [
-  {
-    path : '',
-    component: PostsComponent
-  }, 
   { 
     path: 'posts', 
     component: PostsComponent

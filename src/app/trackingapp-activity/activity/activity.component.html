@@ -5,7 +5,9 @@
       <div class="card-header">{{activity.getFriendlyName()}}</div>
       <div class="card-body">
         <h5 class="card-title">Story Points: {{activity.storyPoints}}</h5>
-        <p class="card-text">Burnt sessions: {{activity.burntSessions}}.</p>
+        <p class="card-text" *ngIf="!isEditable" (click)="isEditable=true">Burnt sessions: {{activity.burntSessions}}.</p>
+        <input *ngIf="isEditable" (keydown.enter)="isEditable=false" type="text" id="name" [(ngModel)]="activity.burntSessions">
+
         <p class="card-text">Remaining Session: {{activity.RemainingSessions}}.</p>            
         <div *ngIf="activity.state=='New';else content">
             <span class="badge badge-danger">Status: {{activity.state}}</span>
